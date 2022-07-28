@@ -10,7 +10,7 @@ CREATE table animals (
     voice VARCHAR
 );
 
-INSERT INTO animals (name, type) VALUES
+INSERT INTO animals (name, type, gender, voice) VALUES
 ('Alex', 'Lion', 'Male', 'Ben Stiller'),
 ('Marty', 'Zebra', 'Male', 'Chris Rock'),
 ('Melman', 'Giraffe', 'Male', 'David Schwimmer'),

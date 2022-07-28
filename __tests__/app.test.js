@@ -13,6 +13,9 @@ describe('backend-express-template routes', () => {
     expect(resp.body[0]).toEqual({
       id: expect.any(String),
       name: expect.any(String),
+      type: expect.any(String),
+      gender: expect.any(String),
+      voice: expect.any(String)
     });
   });
   it('GET /animals/:id should return the animal detail', async () => {

@@ -7,8 +7,26 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
-    expect(1).toEqual(1);
+  it('GET /animals should return a lost of animals', async () => {
+    const resp = await request(app).get('/animals');
+    expect(resp.body.length).toEqual(4);
+    expect(resp.body[0]).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      type: expect.any(String),
+      gender: expect.any(String),
+      voice: expect.any(String)
+    });
+  });
+  it('GET /animals/:id should return the animal detail', async () => {
+    const resp = await request(app).get('/animals/1');
+    expect(resp.body).toEqual({
+      id: '1',
+      name: 'Alex',
+      type: 'Lion',
+      gender: 'Male',
+      voice: 'Ben Stiller'
+    });
   });
   afterAll(() => {
     pool.end();
